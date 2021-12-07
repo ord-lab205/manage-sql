@@ -7,6 +7,7 @@
 -- dangers라는 필드와 status는 삭제 예정.
 
 -- 정규화를 하지 않은 테이블
+-- pk_id, nn_section_id, notice가 기본 필드
 CREATE TABLE test_general (
   pk_id NUMBER(8) PRIMARY KEY DEFAULT seq_general.NEXTVAL,
   nn_section_id NUMBER(1) NOT NULL,
@@ -16,9 +17,17 @@ CREATE TABLE test_general (
   sound_1_avg NUMBER(4),
   sound_2_avg NUMBER(4),
   sound_3_avg NUMBER(4),
+  dust_1_avg NUMBER(4),
+  dust_2_avg NUMBER(4),
+  dust_3_avg NUMBER(4),
+  acceleration_1_avg NUMBER(4), -- x축
+  acceleration_2_avg NUMBER(4), -- y축
+  acceleration_3_avg NUMBER(4), -- z축
+  wave_avg NUMBER(4),
+  ray_avg NUMBER(4),
   dangers VARCHAR, -- -> fk_t_dangers
-  status VARCHAR, -- -> fk_t_status
-  notice VARCHAR,
+  status VARCHAR NOT NULL, -- -> fk_t_status
+  notice VARCHAR
 );
 
 -- 현재 작성하다만 테이블들.
@@ -37,18 +46,22 @@ CREATE TABLE fk_t_status (
 
 );
 
+-- +Dust
 CREATE TABLE t_tunnel (
 
 );
 
+-- +Dust
 CREATE TABLE t_residential_area (
 
 );
 
+-- +Acceleration
 CREATE TABLE t_bridge (
 
 );
 
+-- +Camera, Ultrasonic waves, infrared rays
 CREATE TABLE t_wildlife_area (
 
 );
