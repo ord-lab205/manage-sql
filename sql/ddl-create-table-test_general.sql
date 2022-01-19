@@ -1,4 +1,7 @@
+DROP TABLE test_general;
+
 CREATE TABLE test_general (
+  id NUMBER(6),
   vibration_1_val NUMBER(4),
   vibration_2_val NUMBER(4),
   vibration_3_val NUMBER(4),
